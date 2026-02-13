@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSA Appointment Form | ABC Industries</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f4f8;
+    margin:0;
+    padding:0;
+}
+.header{
+    background:#497cd4;
+    color:#fff;
+    padding:15px;
+    text-align:center;
+}
+.header h1{
+    margin:0;
+    font-size:30px;
+    text-decoration: underline;
+    a{
+        color:black;
+        
+    }
+}
+.header p{
+    margin:5px 0 0;
+    font-size:13px;
+}
+.container{
+    max-width:600px;
+    background:#d38c8c;
+    margin:20px auto;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.container h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#333;
+}
+label{
+    font-size:14px;
+    font-weight:bold;
+    color:#444;
+}
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin:6px 0 15px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    font-size:14px;
+}
+textarea{
+    resize:none;
+}
+button{
+    width:100%;
+    padding:14px;
+    background:#25D366;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+button:hover{
+    background:#1ebe5d;
+}
+a{
+    color: black
+}
+.footer{
+    text-align:center;
+    font-size:12px;
+    color:#666;
+    margin:15px;
+}
+.footer a{
+    color:#0a3d62;
+    text-decoration:none;
+    font-weight:bold;
+}
+@media(max-width:480px){
+    .header h1{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Lostom snacks</h1>
+        <br>
+        <a href="https://www.lostomindustries.com">www.lostomindustries.com</a>
+    
+    
+</div>
+
+<div class="container">
+    <h2>Party Appointment Form</h2>
+
+    <label>Town PARTICULAR INFORMATION </label>
+    <input type="text" id="town" placeholder="Enter Town Name" required>
+    <input type="text" id="rly" placeholder="Name of the nearst railway station" >
+    <input type="text" id="dist" placeholder="Dist" required>
+    <input type="text" id="state" placeholder="State" required>
+
+    <label>INFORMATION ABOUT TRADE PARTNER__ASSOCIATES</label>
+    <input type="text" id="csaName" placeholder="Enter CSA Name" required>
+    <input type="text" id="address" placeholder="Complete postal address" required>
+    <input type="text" id="Mr/Mrs" placeholder="contact person:Mr/Mrs" >
+    <label>Mobile Number </label>
+    <input type="tel" id="mobile" placeholder="Enter Mobile Number" required>
+
+    <label>Name of partners/proprietors</label>
+    <input type="text" id="Mr/Mrs" placeholder="Mr/Mrs" >
+    <input type="text" id="Mr/Mrs" placeholder="Mr/Mrs" >
+    <label>Name of the authorized signatory</label>
+    <input type="text" id="Mr/Mrs" placeholder="Authorized signatory name" required>
+    <label>Present business of CSA</label>
+    <input type="text" placeholder="" >
+    <label>Total turnover per Annum:</label>
+    <input type="text"placeholder="" >
+    <label>Year of  establishment</label>
+    <input type="number" placeholder="">
+    <label>Bankers name and address:</label>
+    <input type="text"  placeholder="">
+    <label>Godown area & address</label>
+    <input type="text"  placeholder="" required>
+    <label>GST NO.</label>
+    <input type="text"  placeholder="" >
+
+
+    <button type="button" onclick="sendWhatsApp()">Submit & Send on WhatsApp</button>
+</div>
+
+<div class="footer">
+    copyright© 2010 Lostom snacks 
+    
+</div>
+
+<script>
+function sendWhatsApp(){
+
+    let town = document.getElementById("town").value.trim();
+    let name = document.getElementById("csaName").value.trim();
+    let mobile = document.getElementById("mobile").value.trim();
+    let address = document.getElementById("address").value.trim();
+
+    if(town === "" || name === "" || mobile === ""){
+        alert("Please fill all required fields");
+        return;
+    }
+
+    let message = 
+        "🏢 ABC Industries Pvt. Ltd.\n" +
+        "CSA Appointment Form\n\n" +
+        "📍 Town: " + town + "\n" +
+        "👤 CSA Name: " + name + "\n" +
+        "📞 Mobile: " + mobile + "\n" +
+        "🏠 Address: " + address;
+
+    let whatsappNumber = "917033810886"; // Yahan apna WhatsApp number daale
+
+    let url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
